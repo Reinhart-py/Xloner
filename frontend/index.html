@@ -3,73 +3,134 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Code Downloader - Kiri</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Reinhart (Kiri)</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/skins/color-1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css"
+        integrity="sha512-siarrWJc1xlcI3KLujzXehrRZcz7mKaiYczTwh9Pw2yQ1qHZj+Pq6uTrzawj6DuqBO3txGqR0j6zPmpGa+nUA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <a href="#" class="logo">
-                <span class="name">Reinhart (Kiri)</span>
-                <span class="dob">14/03/2003</span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/Reinhart-py">GitHub</a></li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Contact</button>
-                            <div class="dropdown-content">
-                                 <a href="./contact.html">Contact Me</a>
-                            </div>
-                         </div>
-                     </li>
-                </ul>
-            </nav>
-            <div class="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+    <div class="main-container">
+        <div class="aside">
+            <div class="logo">
+                <a href="#">Reinhart (Kiri)</a>
             </div>
+            <div class="nav-toggler">
+                <span></span>
+            </div>
+            <ul class="nav">
+                <li><a href="#" class="active"><i class="fa fa-home"></i>Home</a></li>
+                <li><a href="./contact.html"><i class="fa fa-envelope"></i>Contact</a></li>
+            </ul>
         </div>
-    </header>
-    <section class="hero">
-         <div class="container">
-             <h1>Website Code Downloader</h1>
-            <p>Enter the website URL below to download its source code.</p>
-         </div>
-    </section>
-    <section class="main-content">
-        <div class="container">
-            <div class="form-container">
-                 <form id="downloadForm">
-                    <div class="input-group">
-                        <input type="url" id="urlInput" placeholder="Enter website URL" required>
-                        <button type="submit">Download</button>
+        <div class="main-content">
+             <section class="home section active" id="home">
+                <div class="container">
+                     <div class="row">
+                        <div class="home-info padd-15">
+                            <h3 class="hello">Hello, my name is <span class="name">Reinhart</span></h3>
+                            <h3 class="my-profession"> I'm a  <span class="typing">Web Developer</span></h3>
+                             <p>This website lets you download any website source code, by just adding the url below</p>
+                             <div class="form-container">
+                                    <form id="downloadForm">
+                                        <div class="input-group">
+                                            <input type="url" id="urlInput" placeholder="Enter website URL" required>
+                                            <button type="submit">Download</button>
+                                        </div>
+                                    </form>
+                                    <div id="progress-container" class="progress-hidden">
+                                        <div class="progress-bar"></div>
+                                        <p id="progress-message">Downloading...</p>
+                                    </div>
+                                    <div id="downloadLinkContainer" class="download-hidden">
+                                    </div>
+                                    <div id="error-message" class="error-hidden">
+                                    </div>
+                              </div>
+                        </div>
+                         <div class="home-img padd-15">
+                            <img src="images/profile.jpg" alt="">
+                        </div>
                     </div>
-                </form>
-                 <div id="progress-container" class="progress-hidden">
-                     <div class="progress-bar"></div>
-                    <p id="progress-message">Downloading...</p>
-                 </div>
-                 <div id="downloadLinkContainer" class="download-hidden">
-                 </div>
-                 <div id="error-message" class="error-hidden">
-                 </div>
-            </div>
+                </div>
+            </section>
         </div>
-    </section>
-   <footer>
-        <div class="container">
-           <p>© 2024 Reinhart (Kiri). All rights reserved.</p>
-         </div>
-    </footer>
-    <script src="script.js"></script>
+    </div>
+    <script src="js/script.js"></script>
+       <script src="js/style-switcher.js"></script>
+     <script>
+         document.getElementById('downloadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const url = document.getElementById('urlInput').value;
+            const progressBar = document.querySelector('.progress-bar::before');
+            const progressContainer = document.getElementById('progress-container');
+            const downloadLinkContainer = document.getElementById('downloadLinkContainer');
+            const errorMessage = document.getElementById('error-message');
+            const progressMessage = document.getElementById('progress-message');
+
+             progressContainer.classList.remove('progress-hidden');
+             downloadLinkContainer.classList.add('download-hidden');
+             errorMessage.classList.add('error-hidden');
+            progressBar.style.width = '0%';
+
+            fetch('/download', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                 body: JSON.stringify({url: url}),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errorData =>{
+                        errorMessage.classList.remove('error-hidden');
+                        errorMessage.textContent = errorData.error;
+                        progressContainer.classList.add('progress-hidden');
+                  });
+                 }
+                 progressMessage.textContent = 'Processing...';
+                 return response.blob();
+            })
+             .then(blob => {
+                if(blob){
+                     progressMessage.textContent = 'Download Complete!'
+                      progressBar.style.width = '100%';
+                      const downloadLink = document.createElement('a');
+                     downloadLink.href = URL.createObjectURL(blob);
+                     downloadLink.download = 'website-code.zip';
+                      downloadLink.textContent = 'Download ZIP';
+                     downloadLinkContainer.innerHTML = '';
+                     downloadLinkContainer.appendChild(downloadLink);
+                     downloadLinkContainer.classList.remove('download-hidden');
+                 }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorMessage.classList.remove('error-hidden');
+                errorMessage.textContent = "An unexpected error occurred, Please try again";
+                progressContainer.classList.add('progress-hidden');
+            });
+            let progress = 0;
+             const interval = setInterval(() => {
+               progress += 10;
+               progressBar.style.width = `${progress}%`;
+
+                if (progress >= 90) {
+                clearInterval(interval)
+                 }
+            },150);
+        });
+</script>
 </body>
 </html>
