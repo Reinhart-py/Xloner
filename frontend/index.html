@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Code Downloader - Kiri</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="name">Reinhart (Kiri)</span>
+                <span class="dob">14/03/2003</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="https://github.com/Reinhart-py">GitHub</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Contact</button>
+                            <div class="dropdown-content">
+                                 <a href="./contact.html">Contact Me</a>
+                            </div>
+                         </div>
+                     </li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+    <section class="hero">
+         <div class="container">
+             <h1>Website Code Downloader</h1>
+            <p>Enter the website URL below to download its source code.</p>
+         </div>
+    </section>
+    <section class="main-content">
+        <div class="container">
+            <div class="form-container">
+                 <form id="downloadForm">
+                    <div class="input-group">
+                        <input type="url" id="urlInput" placeholder="Enter website URL" required>
+                        <button type="submit">Download</button>
+                    </div>
+                </form>
+                 <div id="progress-container" class="progress-hidden">
+                     <div class="progress-bar"></div>
+                    <p id="progress-message">Downloading...</p>
+                 </div>
+                 <div id="downloadLinkContainer" class="download-hidden">
+                 </div>
+                 <div id="error-message" class="error-hidden">
+                 </div>
+            </div>
+        </div>
+    </section>
+   <footer>
+        <div class="container">
+           <p>© 2024 Reinhart (Kiri). All rights reserved.</p>
+         </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
